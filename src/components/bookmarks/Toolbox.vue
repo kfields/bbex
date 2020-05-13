@@ -35,7 +35,7 @@
 import BookmarksMixin from 'src/mixins/bookmarks'
 
 export default {
-  name: 'EventSearch',
+  name: 'BookmarksToolbox',
   mixins: [BookmarksMixin],
   props: ['duh'],
   components: {
@@ -50,14 +50,12 @@ export default {
   },
   mounted: function () {
     const options = this.options
-    console.log('Event search mounted')
+    console.log('BookmarksToolbox mounted')
     console.log(options)
   },
   methods: {
     search () {
-      // this.options.startTime = this.start.getTime()
-      // this.options.endTime = this.end.getTime()
-      console.log('event search')
+      console.log('bookmark search')
       console.log(this.options)
       const search = this.bookmarkSearch
       search.text = this.text

@@ -49,9 +49,6 @@ export default {
     }
   },
   mounted: function () {
-    const options = this.options
-    console.log('Event search mounted')
-    console.log(options)
   },
   methods: {
     search () {

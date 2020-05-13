@@ -9,11 +9,11 @@
 
 <script>
 import BookmarkCard from './Card'
-import BookmarksMixin from 'src/mixins/bookmarks'
+import BookmarkCollection from './Collection'
 
 export default {
   name: 'BookmarkCards',
-  mixins: [BookmarksMixin],
+  extends: BookmarkCollection,
   data () {
     return {
     }
