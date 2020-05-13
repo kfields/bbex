@@ -3,9 +3,8 @@
 </template>
 
 <script>
-import View from 'components/View'
+import View from 'components/bookmarks/View'
 import Flex from 'components/bookmarks/Flex'
-import Toolbar from './Toolbar'
 
 export default {
   name: 'BookmarkFlexView',
@@ -19,7 +18,6 @@ export default {
     Flex
   },
   mounted () {
-    this.setToolbar(Toolbar)
   }
 }
 </script>

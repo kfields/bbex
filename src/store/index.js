@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import ui from './ui'
+import history from './history'
+import bookmarks from './bookmarks'
 
 Vue.use(Vuex)
 
@@ -13,7 +15,9 @@ Vue.use(Vuex)
 export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
     modules: {
-      ui
+      ui,
+      history,
+      bookmarks
     }
   })
 

@@ -11,9 +11,9 @@
       <router-view/>
     </q-page-container>
 
-    <q-footer :v-if="footer" reveal>
+    <!-- <q-footer :v-if="footer" reveal>
       <div v-bind:is="footer" />
-    </q-footer>
+    </q-footer> -->
 
     <tool-drawer />
 
@@ -40,8 +40,10 @@ export default {
   methods: {
   },
   mounted () {
-    this.setNavDrawerOpen(this.$q.platform.is.desktop)
-    this.setToolDrawerOpen(this.$q.platform.is.desktop)
+    // this.setNavDrawerOpen(this.$q.platform.is.desktop)
+    this.setNavDrawerOpen(true)
+    // this.setToolDrawerOpen(this.$q.platform.is.desktop)
+    this.setToolDrawerOpen(true)
   }
 
 }

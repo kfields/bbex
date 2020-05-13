@@ -2,12 +2,12 @@
 <div class="fit">
   <navbox-shell>
     <q-list>
-      <q-item to="/users/create" exact>
+      <q-item to="/events/create" exact>
         <q-item-section avatar>
-          <q-icon name="bookmark" />
+          <q-icon name="link" />
         </q-item-section>
         <q-item-section>
-          <q-item-label>Add Bookmark</q-item-label>
+          <q-item-label>Add URL</q-item-label>
         </q-item-section>
       </q-item>
     </q-list>

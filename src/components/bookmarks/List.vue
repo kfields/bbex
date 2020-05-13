@@ -28,6 +28,19 @@ export default {
   },
   mounted () {
     this.options.max = this.max
+  },
+  methods: {
+    onBookmarkAction (msg, data) {
+      switch (data.action) {
+        case 'delete': {
+          const id = data.bookmark.id
+          this.$bookmarks.remove(id, () => {
+            const index = this.bookmarks.findIndex(bookmark => bookmark.id === id)
+            this.bookmarks.splice(index, 1)
+          })
+        }
+      }
+    }
   }
 }
 </script>

@@ -3,9 +3,8 @@
 </template>
 
 <script>
-import View from 'components/View'
+import View from 'components/bookmarks/View'
 import BookmarkCards from 'components/bookmarks/Cards'
-import Toolbar from './Toolbar'
 
 export default {
   name: 'BookmarkCardsView',
@@ -19,7 +18,6 @@ export default {
     BookmarkCards
   },
   mounted () {
-    this.setToolbar(Toolbar)
   }
 }
 </script>

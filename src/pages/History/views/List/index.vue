@@ -3,9 +3,8 @@
 </template>
 
 <script>
-import View from 'components/View'
+import View from 'components/history/View'
 import EventList from 'components/history/List'
-import Toolbar from './Toolbar'
 
 export default {
   name: 'EventListView',
@@ -19,12 +18,8 @@ export default {
     EventList
   },
   mounted () {
-    this.setToolbar(Toolbar)
   },
   methods: {
-    query (text) {
-      this.$refs.events.options.text = text
-    }
   }
 }
 </script>

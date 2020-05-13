@@ -1,5 +1,6 @@
 const state = {
   navDrawerOpen: false,
+  toolDrawerOpen: false,
   page: null,
   view: null,
   vu: null,
@@ -55,8 +56,8 @@ const actions = {
   setToolbox: (context, toolbox) => {
     context.commit('toolbox', toolbox)
   },
-  setToolboxProps: (context, toolbox) => {
-    context.commit('toolboxProps', toolbox)
+  setToolboxProps: (context, props) => {
+    context.commit('toolboxProps', props)
   },
   setHeader: (context, header) => {
     context.commit('header', header)
@@ -100,11 +101,11 @@ const mutations = {
     }
     state.toolbox = toolbox
   },
-  toolboxProps: (state, toolboxProps) => {
-    if (state.toolboxProps === toolboxProps) {
+  toolboxProps: (state, props) => {
+    if (state.toolboxProps === props) {
       return
     }
-    state.toolboxProps = toolboxProps
+    state.toolboxProps = props
   },
   header: (state, header) => {
     state.header = header

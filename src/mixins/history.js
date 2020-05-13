@@ -1,29 +1,40 @@
+import { mapGetters, mapActions } from 'vuex'
+
 export default {
   data () {
     return {
       options: {
         text: '',
-        cursor: '',
         limit: 15,
-        max: 100000
+        maxResults: 100000
       },
       history: []
     }
   },
-  watch: {
-    options: async function (options, oldOptions) {
-      console.log('watch')
-      console.log(options)
-      this.onOptions(options)
-    }
+  computed: {
+    ...mapGetters([
+      'historySearch'
+    ])
   },
   created () {
   },
   destroyed () {
+    this.$pubsub.unsubscribe(this.subscription)
   },
-  mounted: function () {
+  mounted () {
+    this.options = this.historySearch
+    this.subscription = this.$pubsub.subscribe('EventSearch', (msg, data) => {
+      console.log('on history search')
+      console.log(msg)
+      console.log(data)
+      this.options = data
+      this.onOptions(data)
+    })
   },
   methods: {
+    ...mapActions([
+      'setHistorySearch'
+    ]),
     more (index, done) {
       this.$nextTick(async () => {
         console.log(`more: ${index}`)
@@ -38,16 +49,19 @@ export default {
         done()
       })
     },
-    reload: function () {
+    reload () {
       console.log('reload')
       this.history = []
-      this.$refs.infiniteScroll.reset()
-      this.$refs.infiniteScroll.resume()
-      this.$refs.infiniteScroll.trigger()
+      if (this.$refs.infiniteScroll) {
+        this.$refs.infiniteScroll.reset()
+        this.$refs.infiniteScroll.resume()
+        this.$refs.infiniteScroll.trigger()
+      }
     },
-    onOptions: async function (options) {
+    async onOptions (options) {
       console.log('history@onOptions')
       console.log(options)
+      this.reload()
     }
   }
 }

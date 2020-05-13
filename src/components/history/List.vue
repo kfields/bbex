@@ -15,7 +15,10 @@ export default {
   name: 'EventList',
   mixins: [HistoryMixin],
   props: {
-    max: {
+    text: {
+      default: ''
+    },
+    maxResults: {
       default: 100000
     }
   },
@@ -27,7 +30,8 @@ export default {
     EventItem
   },
   mounted () {
-    this.options.max = this.max
+    this.options.text = this.text
+    this.options.maxResults = this.maxResults
   }
 }
 </script>

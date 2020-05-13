@@ -19,7 +19,8 @@ module.exports = function (/* ctx */) {
       'dexie',
       'bbex',
       'bookmarks',
-      'history'
+      'history',
+      'pubsub'
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -121,7 +122,7 @@ module.exports = function (/* ctx */) {
       manifest: {
         name: 'BBEX',
         short_name: 'BBEX',
-        description: 'Beautiful Browser EXtension',
+        description: 'Better Bookmark EXtension',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',

@@ -1,7 +1,7 @@
 <template>
 <div>
   <menu-shell>
-    <tippy
+    <tippy ref="tippy"
         interactive
         :animate-fill="false"
         placement="bottom"
@@ -14,7 +14,7 @@
         <q-btn fab-mini flat icon="more_vert"/>
       </template>
       <q-list>
-        <q-item @click="page.use('List')" clickable>
+        <q-item @click="use('List')" clickable>
           <q-item-section avatar>
             <q-icon name="list" />
           </q-item-section>
@@ -22,7 +22,7 @@
             <q-item-label>List</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item @click="page.use('Cards')" clickable>
+        <q-item @click="use('Cards')" clickable>
           <q-item-section avatar>
             <q-icon name="view_agenda" />
           </q-item-section>
@@ -30,7 +30,7 @@
             <q-item-label>Cards</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item @click="page.use('Flex')" clickable>
+        <q-item @click="use('Flex')" clickable>
           <q-item-section avatar>
             <q-icon name="dashboard" />
           </q-item-section>
@@ -58,6 +58,11 @@ export default {
     MenuShell
   },
   methods: {
+    use (name) {
+      console.log('tippy', this.$refs.tippy)
+      this.$refs.tippy.tip.hide()
+      this.page.use(name)
+    }
   }
 }
 </script>

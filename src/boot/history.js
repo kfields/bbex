@@ -1,18 +1,14 @@
-// import axios from 'axios'
-import { db } from './dexie'
-
-class Event {
-  constructor (obj) {
-    Object.assign(this, obj)
-  }
-}
-
-function sameOptions (a, b) {
-  if (a.text === b.text && a.max === b.max) {
+/* function sameOptions (a, b) {
+  if (a.text === b.text &&
+    a.maxResults === b.maxResults &&
+    a.startTime === b.startTime &&
+    a.endTime === b.endTime
+  ) {
+    console.log('same options')
     return true
   }
   return false
-}
+} */
 
 class History {
   constructor () {
@@ -22,12 +18,8 @@ class History {
     this.index = null
   }
 
-  async get (id) {
-    const response = await db.history.get(id)
-    return new Event(response)
-  }
-
   async more (ndx, ttl, options = {}) {
+    console.log('history more')
     const history = await this.find(options)
     const length = history.length
     const results = []
@@ -41,27 +33,25 @@ class History {
   async find (options = {}) {
     console.log('history find')
     console.log(options)
-
+    /*
     if (!sameOptions(options, this.options)) {
       console.log('cache invalid')
       this.options = Object.assign({}, options)
       this.history = null
     }
-    if (this.history) { return this.history }
+    if (this.history) { return this.history } */
     const query = {
-      text: '',
-      maxResults: options.max
+      text: options.text,
+      startTime: options.startTime,
+      endTime: options.endTime,
+      maxResults: options.maxResults
     }
-    if (options && options.query) {
-      query.text = options.query.text
-    } else {
-      // this.history = await db.history.orderBy('dateAdded').reverse().toArray()
-      // this.history = await db.history.orderBy('dateAdded').limit(options.max).reverse().toArray()
-      const search = query => new Promise((resolve, reject) => {
-        chrome.history.search(query, resolve)
-      })
-      this.history = await search(query)
-    }
+    const search = query => new Promise((resolve, reject) => {
+      console.log('maxResults', query.maxResults)
+      console.log('startTime', query.startTime)
+      chrome.history.search(query, resolve)
+    })
+    this.history = await search(query)
     return this.history
   }
 }

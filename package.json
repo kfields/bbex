@@ -1,7 +1,7 @@
 {
   "name": "bbex",
   "version": "0.0.1",
-  "description": "Beautiful Browser EXtension",
+  "description": "Better Bookmark EXtension",
   "productName": "BBEX",
   "cordovaId": "org.cordova.quasar.app",
   "capacitorId": "",
@@ -15,6 +15,7 @@
     "@quasar/extras": "^1.0.0",
     "axios": "^0.18.1",
     "dexie": "^3.0.1",
+    "fuse.js": "^5.2.3",
     "moment": "^2.25.3",
     "pubsub-js": "^1.8.0",
     "quasar": "^1.0.0",

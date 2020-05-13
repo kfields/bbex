@@ -4,7 +4,7 @@
     <div>
       <div>
         <h2>Recent History</h2>
-        <History :max="5" />
+        <History text="" :maxResults="5" />
       </div>
 
       <div>
@@ -20,7 +20,7 @@
 import Page from 'components/Page'
 import Navbox from './Navbox'
 import Header from './Header'
-
+import Toolbox from 'components/DefaultToolbox'
 import History from '../components/history/List'
 import Bookmarks from '../components/bookmarks/List'
 
@@ -40,6 +40,7 @@ export default {
     this.setPage(this)
     this.setNavbox(Navbox)
     this.setHeader(Header)
+    this.setToolbox(Toolbox)
   }
 }
 </script>

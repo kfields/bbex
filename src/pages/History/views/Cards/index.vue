@@ -3,9 +3,8 @@
 </template>
 
 <script>
-import View from 'components/View'
+import View from 'components/history/View'
 import EventCards from 'components/history/Cards'
-import Toolbar from './Toolbar'
 
 export default {
   name: 'EventCardsView',
@@ -19,7 +18,6 @@ export default {
     EventCards
   },
   mounted () {
-    this.setToolbar(Toolbar)
   }
 }
 </script>

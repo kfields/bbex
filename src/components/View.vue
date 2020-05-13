@@ -1,5 +1,6 @@
 <script>
 import Toolbar from './DefaultToolbar'
+import Toolbox from './DefaultToolbox'
 
 import UiMixin from '../mixins/ui'
 
@@ -7,6 +8,7 @@ export default {
   mixins: [UiMixin],
   mounted () {
     this.setToolbar(Toolbar)
+    this.setToolbox(Toolbox)
     this.onSwitch()
   },
   beforeRouteUpdate (to, from, next) {
@@ -20,6 +22,7 @@ export default {
   methods: {
     onSwitch () {
       this.setToolbar(Toolbar)
+      this.setToolbox(Toolbox)
     }
   }
 }
