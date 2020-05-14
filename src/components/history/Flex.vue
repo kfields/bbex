@@ -8,12 +8,12 @@
 </template>
 
 <script>
+import Collection from './Collection'
 import EventCard from './Card'
-import HistoryMixin from 'src/mixins/history'
 
 export default {
   name: 'EventCards',
-  mixins: [HistoryMixin],
+  extends: Collection,
   data () {
     return {
     }

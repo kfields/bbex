@@ -8,12 +8,12 @@ db.version(1).stores({
 
 db.on('populate', function () {
   console.log('populate')
-  chrome.bookmarks.getRecent(100000, (bookmarks) => {
+  /* chrome.bookmarks.getRecent(100000, (bookmarks) => {
     for (const bookmark of bookmarks) {
       const { id, url, title, dateAdded } = bookmark
       db.bookmarks.put({ id, url, title, dateAdded })
     }
-  })
+  }) */
 })
 
 export default async ({ Vue }) => {

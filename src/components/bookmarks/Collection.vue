@@ -5,7 +5,10 @@ export default {
   name: 'BookmarkCollection',
   mixins: [BookmarksMixin],
   props: {
-    max: {
+    text: {
+      default: ''
+    },
+    maxResults: {
       default: 100000
     }
   },
@@ -16,7 +19,8 @@ export default {
   components: {
   },
   mounted () {
-    this.options.max = this.max
+    this.options.text = this.text
+    this.options.maxResults = this.maxResults
   },
   methods: {
     onBookmarkAction (msg, data) {

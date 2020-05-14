@@ -8,19 +8,13 @@
 </template>
 
 <script>
+import Collection from './Collection'
 import EventItem from './Item'
-import HistoryMixin from 'src/mixins/history'
 
 export default {
   name: 'EventList',
-  mixins: [HistoryMixin],
+  extends: Collection,
   props: {
-    text: {
-      default: ''
-    },
-    maxResults: {
-      default: 100000
-    }
   },
   data () {
     return {
@@ -30,8 +24,6 @@ export default {
     EventItem
   },
   mounted () {
-    this.options.text = this.text
-    this.options.maxResults = this.maxResults
   }
 }
 </script>

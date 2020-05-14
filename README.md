@@ -26,6 +26,10 @@ Need to find a way to tag URLs automatically
 
 Use Dexie for storing data about bookmarks/URLs.  Fuse for fuzzy search
 
+## Usage
+
+Add a bookmark:  Ctrl+B
+
 ## Install the dependencies
 ```bash
 yarn

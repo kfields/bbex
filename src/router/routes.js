@@ -8,7 +8,8 @@ const routes = [
       { path: 'bookmarks', component: () => import('pages/Bookmarks') },
       { path: 'history', component: () => import('pages/History') }
     ]
-  }
+  },
+  { path: '/popup', component: () => import('pages/Popup.vue') }
 ]
 
 // Always leave this as last one

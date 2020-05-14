@@ -8,6 +8,15 @@
     "48": "icons/icon-48x48.png",
     "128": "icons/icon-128x128.png"
   },
+  "commands": {
+    "bookmark": {
+      "suggested_key": {
+        "default": "Ctrl+B",
+        "mac": "Command+B"
+      },
+      "description": "Add bookmark"
+    }
+  },
   "browser_action": {
     "default_title": "BBEX"
   },

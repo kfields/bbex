@@ -9,7 +9,7 @@
 
       <div>
         <h2>Recent Bookmarks</h2>
-        <Bookmarks :max="5" />
+        <Bookmarks text="" :maxResults="5" />
       </div>
 
     </div>

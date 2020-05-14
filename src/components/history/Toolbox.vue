@@ -23,8 +23,8 @@
         </q-card-section>
         <q-card-actions align="right">
           <!-- <q-btn icon="search" round type="submit" class="float-left"/> -->
-          <q-btn round label="Submit" type="submit" class="float-left"/>
-          <q-btn round label="Clear" @click="clear" class="float-right"/>
+          <q-btn label="Submit" type="submit" class="float-left"/>
+          <q-btn label="Clear" @click="clear" class="float-right"/>
         </q-card-actions>
       </q-card>
     </q-form>
