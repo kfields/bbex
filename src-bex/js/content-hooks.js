@@ -3,9 +3,9 @@
 
 export default function attachContentHooks (bridge) {
   // Hook into the bridge to listen for events sent from the client BEX.
+
   bridge.on('close-popup', event => {
     const el = document.getElementById('bex-app-iframe')
-    // window.alert('attachContentHooks')
     if (el) {
       el.remove()
     }

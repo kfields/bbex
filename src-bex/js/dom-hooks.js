@@ -2,13 +2,14 @@
 // More info: https://quasar.dev/quasar-cli/developing-browser-extensions/dom-hooks
 
 export default function attachDomHooks (bridge) {
-  bridge.on('close-popup', event => {
+
+  /* bridge.on('close-popup', event => {
     const el = document.getElementById('bex-app-iframe')
     window.alert('attachDomHooks')
     if (el) {
       el.remove()
     }
-  })
+  }) */
   /*
   bridge.send('message.to.quasar', {
     worked: true

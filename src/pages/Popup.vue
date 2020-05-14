@@ -1,40 +1,57 @@
 <template>
-    <q-card>
-        <q-card-section class="bg-primary text-white">
-          Add Bookmark
-        </q-card-section>
-  <div class="q-pa-md" style="max-width: 400px">
-
     <q-form
+      ref="popup" id="bbex-popup" @keyup.esc.prevent="cancel" tabindex="-1"
       @submit="submit"
       @reset="reset"
-      class="q-gutter-md"
+      class="q-gutter-md q-pa-md" style="max-width: 400px"
     >
-      <q-input
-        filled
-        v-model="tabTitle"
-        label="Title"
-      />
+      <q-card>
+        <q-toolbar class="bg-primary text-white">
+          <q-toolbar-title>
+            Add Bookmark
+          </q-toolbar-title>
+          <q-space/>
+          <q-btn
+            flat
+            dense
+            round
+            @click="cancel"
+            aria-label="Cancel"
+          >
+            <q-icon name="cancel" />
+          </q-btn>
 
-      <q-input
-        filled
-        v-model="tabUrl"
-        label="Url"
-      />
+        </q-toolbar>
 
-      <div>
-        <q-btn label="Submit" type="submit" color="primary"/>
-        <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
-        <q-btn label="Cancel" flat class="q-ml-sm" @click="cancel" />
-      </div>
+        <q-input
+          filled
+          v-model="tabTitle"
+          label="Title"
+        />
+
+        <q-input
+          filled
+          v-model="tabUrl"
+          label="Url"
+        />
+
+        <q-card-actions>
+          <q-btn label="Submit" type="submit" color="primary"/>
+          <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
+          <q-btn label="Cancel" color="primary" flat class="q-ml-sm" @click="cancel" />
+        </q-card-actions>
+
+      </q-card>
     </q-form>
 
-  </div>
-        <q-card-actions/>
-    </q-card>
 </template>
 
 <style lang="scss">
+.q-form {
+  transition: visibility 0.2s 0.4s, opacity 0.2s 0.4s;
+  border: 0px;
+  outline: 0px;
+}
 </style>
 
 <script>
@@ -49,6 +66,7 @@ export default {
   },
   mounted () {
     this.reset()
+    this.open()
   },
   methods: {
     submit () {
@@ -69,6 +87,12 @@ export default {
     },
     cancel () {
       this.close()
+    },
+    open () {
+      this.$refs.popup.$el.focus()
+      /* this.$q.bex.send('open-popup', { someKey: 'aValue' }).then(response => {
+        window.alert('Some response from the other side')
+      }) */
     },
     close () {
       this.$q.bex.send('close-popup', { someKey: 'aValue' }).then(response => {

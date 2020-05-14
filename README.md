@@ -28,7 +28,8 @@ Use Dexie for storing data about bookmarks/URLs.  Fuse for fuzzy search
 
 ## Usage
 
-Add a bookmark:  Ctrl+B
+Add a Bookmark:  Ctrl+B
+Open Extension Tab:  Alt+B
 
 ## Install the dependencies
 ```bash
