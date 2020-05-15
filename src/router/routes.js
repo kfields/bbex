@@ -8,7 +8,8 @@ const routes = [
       { path: 'bookmarks', component: () => import('pages/Bookmarks') },
       { path: 'bookmarks/:id', component: () => import('pages/Bookmark'), props: true },
       { path: 'url/:id', component: () => import('pages/Resource'), props: true },
-      { path: 'history', component: () => import('pages/History') }
+      { path: 'history', component: () => import('pages/History') },
+      { path: 'favorites', component: () => import('pages/Favorites') }
     ]
   },
   { path: '/popup', component: () => import('pages/Popup.vue') }

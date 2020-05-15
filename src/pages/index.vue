@@ -4,10 +4,9 @@
     <div>
       <div>
         <q-card-section class="bg-primary text-white">
-          Recent History
+          Favorites
         </q-card-section>
-
-        <History text="" :maxResults="5" />
+        <Favorites text="" :maxResults="5" />
       </div>
 
       <div>
@@ -17,7 +16,14 @@
         <Bookmarks text="" :maxResults="5" />
       </div>
 
+      <div>
+        <q-card-section class="bg-primary text-white">
+          Recent History
+        </q-card-section>
+        <History text="" :maxResults="5" />
+      </div>
     </div>
+
   </q-page>
 </template>
 
@@ -26,6 +32,7 @@ import Page from 'components/Page'
 import Navbox from './Navbox'
 import Header from './Header'
 import Toolbox from 'components/DefaultToolbox'
+import Favorites from '../components/favorite/List'
 import History from '../components/history/List'
 import Bookmarks from '../components/bookmarks/List'
 
@@ -38,8 +45,9 @@ export default {
     }
   },
   components: {
-    History,
-    Bookmarks
+    Favorites,
+    Bookmarks,
+    History
   },
   mounted () {
     this.setPage(this)

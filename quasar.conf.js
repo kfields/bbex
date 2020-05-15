@@ -21,6 +21,7 @@ module.exports = function (/* ctx */) {
       'bookmarks',
       'history',
       'visits',
+      'favorites',
       'pubsub'
     ],
 

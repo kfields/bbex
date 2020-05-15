@@ -11,7 +11,7 @@
 import UiMixin from 'src/mixins/ui'
 
 export default {
-  name: 'UsersHeader',
+  name: 'BookmarkHeader',
   mixins: [
     UiMixin
   ],

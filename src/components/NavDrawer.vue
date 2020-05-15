@@ -4,12 +4,16 @@
       <router-link to="/" :exact="true">
         <q-btn flat icon="home" />
       </router-link>
-      <router-link to="/history">
-        <q-btn flat icon="history" />
+      <router-link to="/favorites">
+        <q-btn flat icon="stars" />
       </router-link>
       <router-link to="/bookmarks">
         <q-btn flat icon="bookmarks" />
       </router-link>
+      <router-link to="/history">
+        <q-btn flat icon="history" />
+      </router-link>
+
     </div>
     <div class="navbox">
       <div v-bind:is="navbox" />
