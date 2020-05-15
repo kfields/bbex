@@ -22,6 +22,14 @@
             <q-item-label>List</q-item-label>
           </q-item-section>
         </q-item>
+        <q-item @click="use('Tiles')" clickable>
+          <q-item-section avatar>
+            <q-icon name="view_comfy" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Tiles</q-item-label>
+          </q-item-section>
+        </q-item>
         <q-item @click="use('Cards')" clickable>
           <q-item-section avatar>
             <q-icon name="view_agenda" />

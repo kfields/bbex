@@ -6,7 +6,11 @@
           filled
           v-model="title"
           label="Title"
-        />
+        >
+          <template v-slot:prepend>
+            <img :src="`chrome://favicon/${url}`"/>
+          </template>
+        </q-input>
 
         <q-input
           filled
@@ -17,7 +21,7 @@
         <q-field filled label="Date Added" stack-label>
           <template v-slot:control>
             <div class="self-center full-width no-outline">
-              {{$moment(bookmark.dateAdded).format('LLL')}}
+              {{$moment(dateAdded).format('LLL')}}
             </div>
           </template>
         </q-field>
@@ -43,7 +47,8 @@ export default {
     return {
       bookmark: null,
       title: '',
-      url: ''
+      url: '',
+      dateAdded: 0
     }
   },
   components: {
@@ -56,6 +61,7 @@ export default {
       this.bookmark = bookmark
       this.title = bookmark.title
       this.url = bookmark.url
+      this.dateAdded = bookmark.dateAdded
     })
     // this.setView(List)
     this.setNavbox(Navbox)

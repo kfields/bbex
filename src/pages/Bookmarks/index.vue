@@ -1,5 +1,5 @@
 <template>
-  <q-page class="flex flex-center">
+  <q-page>
     <component :is="view" />
   </q-page>
 </template>
@@ -10,6 +10,7 @@ import Navbox from './Navbox'
 import Header from './Header'
 import Menu from './Menu'
 
+import Tiles from './views/Tiles'
 import List from './views/List'
 import Cards from './views/Cards'
 import Flex from './views/Flex'
@@ -20,14 +21,14 @@ export default {
   data () {
     return {
       views: {
+        List,
+        Tiles,
         Cards,
-        Flex,
-        List
+        Flex
       }
     }
   },
   components: {
-    Cards
   },
   mounted () {
     this.setPage(this)

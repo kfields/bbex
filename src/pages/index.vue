@@ -1,14 +1,19 @@
 <template>
-  <q-page class="flex flex-center">
+  <q-page padding>
 
     <div>
       <div>
-        <h2>Recent History</h2>
+        <q-card-section class="bg-primary text-white">
+          Recent History
+        </q-card-section>
+
         <History text="" :maxResults="5" />
       </div>
 
       <div>
-        <h2>Recent Bookmarks</h2>
+        <q-card-section class="bg-primary text-white">
+          Recent Bookmarks
+        </q-card-section>
         <Bookmarks text="" :maxResults="5" />
       </div>
 

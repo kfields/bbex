@@ -20,6 +20,7 @@ module.exports = function (/* ctx */) {
       'bbex',
       'bookmarks',
       'history',
+      'visits',
       'pubsub'
     ],
 
