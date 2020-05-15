@@ -20,14 +20,14 @@
           <q-btn fab-mini flat icon="more_vert"/>
         </template>
         <q-list>
-          <q-item clickable @click="$pubsub.publish('BookmarkAction', { action: 'edit', bookmark})">
+          <!-- <q-item clickable @click="$pubsub.publish('BookmarkAction', { action: 'edit', bookmark})">
             <q-item-section avatar>
               <q-icon name="edit" />
             </q-item-section>
             <q-item-section>
               <q-item-label>Edit</q-item-label>
             </q-item-section>
-          </q-item>
+          </q-item> -->
           <q-item clickable @click="$pubsub.publish('BookmarkAction', { action: 'delete', bookmark})">
             <q-item-section avatar>
               <q-icon name="delete" />
@@ -65,6 +65,7 @@ export default {
           switch (this.titleClicks) {
             case 1:
               console.log('single click')
+              this.$router.push(`/bookmarks/${this.bookmark.id}`)
               break
             default:
               console.log('double click')

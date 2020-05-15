@@ -20,14 +20,6 @@
           <q-btn fab-mini flat icon="more_vert"/>
         </template>
         <q-list>
-          <q-item @click="frame.use('Viewer')" clickable>
-            <q-item-section avatar>
-              <q-icon name="edit" />
-            </q-item-section>
-            <q-item-section>
-              <q-item-label>Edit</q-item-label>
-            </q-item-section>
-          </q-item>
           <q-item @click="frame.remove()" clickable>
             <q-item-section avatar>
               <q-icon name="delete" />

@@ -17,6 +17,8 @@ export default {
   },
   beforeRouteLeave (to, from, next) {
     this.setHeader(null)
+    this.setNavbox(null)
+    this.setToolbox(null)
     // this.setFooter(null)
     // this.setFooter(Footer)
     next()

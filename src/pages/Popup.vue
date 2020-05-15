@@ -1,6 +1,10 @@
 <template>
     <q-form
-      ref="popup" id="bbex-popup" @keyup.esc.prevent="cancel" tabindex="-1"
+      ref="popup"
+      id="bbex-popup"
+      tabindex="-1"
+      @keyup.enter="submit"
+      @keyup.esc="cancel"
       @submit="submit"
       @reset="reset"
       class="q-gutter-md q-pa-md" style="max-width: 400px"
