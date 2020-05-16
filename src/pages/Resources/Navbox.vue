@@ -2,12 +2,12 @@
 <div class="fit">
   <navbox-shell>
     <q-list>
-      <q-item to="/bookmarks/create" exact>
+      <q-item to="/resources/create" exact>
         <q-item-section avatar>
-          <q-icon name="bookmark" />
+          <q-icon name="add_circle_outline" />
         </q-item-section>
         <q-item-section>
-          <q-item-label>Add Bookmark</q-item-label>
+          <q-item-label>Add Resource</q-item-label>
         </q-item-section>
       </q-item>
     </q-list>
@@ -21,7 +21,7 @@ import UiMixin from 'src/mixins/ui'
 import NavboxShell from 'components/NavboxShell'
 
 export default {
-  name: 'DefaultNavbox',
+  name: 'ResourcesNavbox',
   mixins: [
     UiMixin
   ],

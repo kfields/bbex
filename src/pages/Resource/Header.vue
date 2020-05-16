@@ -11,7 +11,7 @@
 import UiMixin from 'src/mixins/ui'
 
 export default {
-  name: 'ResourceHeader',
+  name: 'UsersHeader',
   mixins: [
     UiMixin
   ],

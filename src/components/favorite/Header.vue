@@ -65,7 +65,7 @@ export default {
           switch (this.titleClicks) {
             case 1:
               console.log('single click')
-              this.$router.push(`/favorites/${this.favorite.id}`)
+              this.$router.push(`/favorites/${encodeURIComponent(this.favorite.url)}`)
               break
             default:
               console.log('double click')

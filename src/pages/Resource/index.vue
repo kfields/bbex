@@ -71,18 +71,21 @@ export default {
   components: {
     VisitList
   },
-  mounted () {
+  async mounted () {
     this.setPage(this)
-    const query = {
-      text: this.url
+    /* const query = {
+      text: `"${this.url}"`,
+      startTime: 0,
+      maxResults: 1
     }
     chrome.history.search(query, resources => {
       const resource = resources[0]
       console.log('resource', resource)
       this.resource = resource
       this.title = resource.title
-      // this.url = resource.url
-    })
+    }) */
+    const resource = this.resource = await this.$resources.get(this.url)
+    this.title = resource.title
     // this.setView(List)
     this.setNavbox(Navbox)
     this.setHeader(Header)

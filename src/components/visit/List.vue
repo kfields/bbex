@@ -1,7 +1,7 @@
 <template>
   <q-infinite-scroll ref="infiniteScroll" @load="more">
     <q-list class="menu-list">
-        <VisitItem v-for="visit in visits" v-bind:key="visit.id" :visit="visit"/>
+        <VisitItem v-for="visit in visits" v-bind:key="visit.visitId" :visit="visit"/>
     </q-list>
     <q-spinner slot="message" :size="40"/>
   </q-infinite-scroll>

@@ -1,13 +1,36 @@
 <template>
-  <BookmarkList />
+  <div>
+    <div>
+      <q-card-section class="bg-primary text-white">
+        Favorites
+      </q-card-section>
+      <Favorites text="" :maxResults="5" />
+    </div>
+
+    <div>
+      <q-card-section class="bg-primary text-white">
+        Recent Bookmarks
+      </q-card-section>
+      <Bookmarks text="" :maxResults="5" />
+    </div>
+
+    <div>
+      <q-card-section class="bg-primary text-white">
+        Recent History
+      </q-card-section>
+      <History text="" :maxResults="5" />
+    </div>
+  </div>
 </template>
 
 <script>
-import View from 'components/bookmarks/View'
-import BookmarkList from 'components/bookmarks/List'
+import View from 'components/home/View'
+import Favorites from 'components/favorite/List'
+import History from 'components/history/List'
+import Bookmarks from 'components/bookmarks/List'
 
 export default {
-  name: 'BookmarkListView',
+  name: 'HomeListView',
   extends: View,
   mixins: [],
   data () {
@@ -15,7 +38,9 @@ export default {
     }
   },
   components: {
-    BookmarkList
+    Favorites,
+    Bookmarks,
+    History
   },
   mounted () {
   }

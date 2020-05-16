@@ -4,12 +4,15 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages') },
+      { path: '', component: () => import('pages/Home') },
+      { path: 'setup', component: () => import('pages/Setup') },
       { path: 'bookmarks', component: () => import('pages/Bookmarks') },
       { path: 'bookmarks/:id', component: () => import('pages/Bookmark'), props: true },
-      { path: 'url/:id', component: () => import('pages/Resource'), props: true },
       { path: 'history', component: () => import('pages/History') },
-      { path: 'favorites', component: () => import('pages/Favorites') }
+      { path: 'favorites', component: () => import('pages/Favorites') },
+      { path: 'favorites/:id', component: () => import('pages/Resource'), props: true },
+      { path: 'resources', component: () => import('pages/Resources') },
+      { path: 'resources/:id', component: () => import('pages/Resource'), props: true }
     ]
   },
   { path: '/popup', component: () => import('pages/Popup.vue') }

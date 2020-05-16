@@ -57,7 +57,8 @@ export default {
 .tile:hover {
   cursor: pointer;
   color: black !important;
-  background-color:white;
+  // background-color:white;
+  filter: drop-shadow(8px 8px 8px #222222);
 }
 .tile img {
   width: 32px;

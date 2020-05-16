@@ -4,7 +4,7 @@
     <q-list>
       <q-item to="/bookmarks/create" exact>
         <q-item-section avatar>
-          <q-icon name="bookmark" />
+          <q-icon name="add_circle_outline" />
         </q-item-section>
         <q-item-section>
           <q-item-label>Add Bookmark</q-item-label>

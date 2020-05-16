@@ -13,6 +13,9 @@
       <router-link to="/history">
         <q-btn flat icon="history" />
       </router-link>
+      <router-link to="/resources">
+        <q-btn flat icon="link" />
+      </router-link>
 
     </div>
     <div class="navbox">

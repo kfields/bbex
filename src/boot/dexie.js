@@ -1,9 +1,10 @@
 import Dexie from 'dexie'
+import 'dexie-observable'
 
 export const db = new Dexie('BBEX')
 
 db.version(1).stores({
-  bookmarks: 'id, url, title, dateAdded'
+  resources: 'url, title, dateAdded, lastVisitTime, visitCount, marked'
 })
 
 db.on('populate', function () {

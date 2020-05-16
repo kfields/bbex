@@ -1,7 +1,7 @@
 <template>
 <div class="fit">
   <navbox-shell>
-    <q-list>
+    <!-- <q-list>
       <q-item to="/bookmarks/create" exact>
         <q-item-section avatar>
           <q-icon name="bookmark" />
@@ -10,8 +10,7 @@
           <q-item-label>Add Bookmark</q-item-label>
         </q-item-section>
       </q-item>
-    </q-list>
-
+    </q-list> -->
   </navbox-shell>
 </div>
 </template>

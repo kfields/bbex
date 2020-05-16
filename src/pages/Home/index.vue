@@ -1,5 +1,5 @@
 <template>
-  <q-page>
+  <q-page padding>
     <component :is="view" />
   </q-page>
 </template>
@@ -16,7 +16,7 @@ import Cards from './views/Cards'
 import Flex from './views/Flex'
 
 export default {
-  name: 'BookmarksPage',
+  name: 'HomePage',
   extends: Page,
   data () {
     return {

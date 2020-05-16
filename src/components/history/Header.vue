@@ -57,7 +57,7 @@ export default {
           switch (this.titleClicks) {
             case 1:
               console.log('single click')
-              this.$router.push(`/url/${encodeURIComponent(this.event.url)}`)
+              this.$router.push(`/resources/${encodeURIComponent(this.event.url)}`)
               break
             default:
               console.log('double click')

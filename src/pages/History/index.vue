@@ -11,6 +11,7 @@ import Header from './Header'
 import Menu from './Menu'
 
 import List from './views/List'
+import Tiles from './views/Tiles'
 import Cards from './views/Cards'
 import Flex from './views/Flex'
 
@@ -20,9 +21,10 @@ export default {
   data () {
     return {
       views: {
+        List,
+        Tiles,
         Cards,
-        Flex,
-        List
+        Flex
       }
     }
   },

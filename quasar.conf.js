@@ -22,6 +22,7 @@ module.exports = function (/* ctx */) {
       'history',
       'visits',
       'favorites',
+      'resources',
       'pubsub'
     ],
 

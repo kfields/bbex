@@ -56,4 +56,15 @@ export default function attachBackgroundHooks (bridge /* , allActiveConnections 
     }
   })
    */
+
+  /* function onVisited (historyItem) {
+    bridge.send('bex.history.visit', historyItem)
+  }
+  if (!chrome.history.onVisited.hasListener(onVisited)) {
+    chrome.history.onVisited.addListener(onVisited)
+  }
+
+  window.addEventListener('beforeunload', () => {
+    chrome.history.onVisited.removeListener(onVisited)
+  }) */
 }

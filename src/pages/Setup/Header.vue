@@ -1,8 +1,8 @@
 <template>
   <header-shell>
     <h1>
-      <q-icon name="home" class="header-icon"/>
-      Home
+      <q-icon name="settings_input_hdmi" class="header-icon"/>
+      Setup
     </h1>
   </header-shell>
 </template>
@@ -11,7 +11,7 @@
 import UiMixin from 'src/mixins/ui'
 
 export default {
-  name: 'HomeHeader',
+  name: 'ResourceHeader',
   mixins: [
     UiMixin
   ],
