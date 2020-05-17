@@ -1,8 +1,8 @@
 <template>
   <q-card>
-    <BookmarkHeader :bookmark="bookmark"/>
-    <q-card-section class="bg-primary text-white">
-      <div>{{$moment(bookmark.dateAdded).format('LLL')}}</div>
+    <ResourceHeader :resource="resource"/>
+    <q-card-section>
+      <div>{{$moment(resource.dateAdded).format('LLL')}}</div>
     </q-card-section>
 
     <q-card-actions/>
@@ -10,13 +10,13 @@
 </template>
 
 <script>
-import BookmarkHeader from './Header'
+import ResourceHeader from './Header'
 
 export default {
-  name: 'BookmarkCard',
-  props: ['bookmark'],
+  name: 'ResourceCard',
+  props: ['resource'],
   components: {
-    BookmarkHeader
+    ResourceHeader
   },
   methods: {
   }

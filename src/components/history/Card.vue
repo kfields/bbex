@@ -1,11 +1,9 @@
 <template>
   <q-card>
     <EventHeader :event="event"/>
-    <q-card-section class="bg-primary text-white">
-      <div>{{$moment(event.lastVisitTime).format('LLL')}}</div>
+    <q-card-section>
+      {{$moment(event.lastVisitTime).format('LLL')}}
     </q-card-section>
-
-    <q-card-actions/>
   </q-card>
 </template>
 
@@ -13,7 +11,7 @@
 import EventHeader from './Header'
 
 export default {
-  name: 'BookmarkCard',
+  name: 'HistoryCard',
   props: ['event'],
   components: {
     EventHeader

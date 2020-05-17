@@ -97,10 +97,26 @@ a {
 a, a:visited, a:hover, a:active {
   color: inherit;
 }
-a:hover {
-  // text-decoration: underline;
+
+.q-section {
+  margin-bottom: 8px;
+}
+.q-section-header {
+  color: white;
+  background-color: $primary;
+  font-size: 1.25em;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 4px;
 }
 
+/* .q-section:after {
+  content: "";
+  height: 1px;
+  background: linear-gradient(to right,  rgba(0,0,0,0) 0%,rgba(147,147,147,1) 50%,rgba(0,0,0,0) 100%);
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 10px;
+} */
 .excerpt {
     height: 2em; // that's one line, 2em for 2 lines, etc...
     line-height: 1em; // the height of one text line
@@ -117,10 +133,14 @@ a:hover {
   max-width: 600px;
   background-color: white;
 }
+
+.card-section {
+  margin: 8px auto;
+  max-width: 600px;
+}
 .card-column
 {
   margin: 0 auto;
-  max-width: 600px;
 }
 .card-column > * {
   margin-top: 8px;
@@ -152,8 +172,6 @@ a:hover {
 }
 .tile:hover {
   cursor: pointer;
-  color: black !important;
-  // background-color:white;
   filter: drop-shadow(4px 4px 4px #444444);
 }
 .tile img {

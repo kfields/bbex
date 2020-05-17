@@ -1,6 +1,9 @@
 <template>
   <q-card>
     <FavoriteHeader :favorite="favorite"/>
+    <q-card-section>
+      <div>{{$moment(favorite.dateAdded).format('LLL')}}</div>
+    </q-card-section>
   </q-card>
 </template>
 

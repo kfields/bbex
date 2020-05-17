@@ -8,8 +8,8 @@ export class Resource {
     this.dateAdded = dateAdded
     this.lastVisitTime = lastVisitTime
     this.visitCount = visitCount
-    this.mark = mark
-    this.favorite = favorite
+    this.mark = mark ? 1 : 0
+    this.favorite = favorite ? 1 : 0
   }
 }
 

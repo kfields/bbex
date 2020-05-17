@@ -50,12 +50,13 @@
           </template>
         </q-field>
 
-        <q-card-section class="bg-primary text-white">
+      <q-section>
+        <q-section-header icon="history">
           Visits
-        </q-card-section>
+        </q-section-header>
 
         <VisitList ref="visits" :url="url" />
-
+      </q-section>
     </div>
   </q-page>
 </template>
@@ -98,9 +99,8 @@ export default {
     const resource = this.resource = await this.$resources.get(this.url)
     this.title = resource.title
     this.dateAdded = resource.dateAdded
-    this.mark = resource.mark
-    console.log('mark', this.mark)
-    this.favorite = resource.favorite
+    this.mark = resource.mark === 1
+    this.favorite = resource.favorite === 1
   },
   methods: {
     save () {

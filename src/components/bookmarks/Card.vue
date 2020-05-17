@@ -1,11 +1,9 @@
 <template>
   <q-card>
     <BookmarkHeader :bookmark="bookmark"/>
-    <q-card-section class="bg-primary text-white">
+    <q-card-section>
       <div>{{$moment(bookmark.dateAdded).format('LLL')}}</div>
     </q-card-section>
-
-    <q-card-actions/>
   </q-card>
 </template>
 

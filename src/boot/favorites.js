@@ -1,21 +1,18 @@
+import { db } from './dexie'
+
 class Favorites {
   constructor () {
     this.options = {}
-    this.favorites = null
+    this.resources = null
     this.index = null
   }
 
-  async more (ndx, ttl, options = {}) {
-    console.log('favorites more')
-    const favorites = await this.find(options)
-    console.log(favorites)
-    const length = favorites.length
-    const results = []
-    for (let i = ndx; i < ndx + ttl; ++i) {
-      if (i >= length) { break }
-      results.push(favorites[i])
+  async more (offset, limit, options = {}) {
+    if (options.text) {
+      return await this.search(offset, limit, options)
     }
-    return results
+    const resources = this.resources = await db.resources.where('favorite').equals(1).offset(offset).limit(limit).reverse().sortBy('lastVisitTime')
+    return resources
   }
 
   async find (options = {}) {

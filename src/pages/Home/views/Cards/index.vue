@@ -1,25 +1,25 @@
 <template>
   <div>
-    <div>
-      <q-card-section class="bg-primary text-white">
+    <q-section class="card-section">
+      <q-section-header icon="favorite">
         Favorites
-      </q-card-section>
+      </q-section-header>
       <Favorites text="" :maxResults="5" />
-    </div>
+    </q-section>
 
-    <div>
-      <q-card-section class="bg-primary text-white">
+    <q-section class="card-section">
+      <q-section-header icon="bookmarks">
         Recent Bookmarks
-      </q-card-section>
+      </q-section-header>
       <Bookmarks text="" :maxResults="5" />
-    </div>
+    </q-section>
 
-    <div>
-      <q-card-section class="bg-primary text-white">
+    <q-section class="card-section">
+      <q-section-header icon="history">
         Recent History
-      </q-card-section>
+      </q-section-header>
       <History text="" :maxResults="5" />
-    </div>
+    </q-section>
   </div>
 </template>
 
