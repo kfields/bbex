@@ -95,9 +95,25 @@ export default {
           const resource = new Resource(item.url, item.title, item.dateAdded, item.dateAdded, 1, true)
           resourceDict[item.url] = resource
         } else {
-          resourceDict[item.url].marked = true
+          resourceDict[item.url].mark = true
         }
       }
+      // favorites
+      const topSites = () => new Promise((resolve, reject) => {
+        chrome.topSites.get(resolve)
+      })
+      const favorites = await topSites()
+
+      for (const item of favorites) {
+        if (!(item.url in resourceDict)) {
+          const resource = new Resource(item.url, item.title, Date.now(), Date.now(), 1, false, true)
+          resourceDict[item.url] = resource
+        } else {
+          resourceDict[item.url].favorite = true
+        }
+      }
+
+      // turn dictionary into array
       const resources = []
 
       for (const key in resourceDict) {

@@ -3,8 +3,8 @@
 </template>
 
 <script>
-import View from 'components/favorite/View'
-import Flex from 'components/favorite/Flex'
+import View from 'components/favorites/View'
+import Flex from 'components/favorites/Flex'
 
 export default {
   name: 'FavoriteFlexView',

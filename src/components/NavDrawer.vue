@@ -5,7 +5,7 @@
         <q-btn flat icon="home" />
       </router-link>
       <router-link to="/favorites">
-        <q-btn flat icon="stars" />
+        <q-btn flat icon="favorite" />
       </router-link>
       <router-link to="/bookmarks">
         <q-btn flat icon="bookmarks" />

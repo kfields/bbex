@@ -142,6 +142,25 @@ a:hover {
   margin: 4px;
 }
 
+.tile {
+  font-size: .75em;
+  width: 64px;
+  height: 128px;
+  padding: 4px;
+  margin: 4px;
+  overflow: hidden;
+}
+.tile:hover {
+  cursor: pointer;
+  color: black !important;
+  // background-color:white;
+  filter: drop-shadow(4px 4px 4px #444444);
+}
+.tile img {
+  width: 32px;
+  height: 32px;
+}
+
 .paper {
   background-color: white;
 }

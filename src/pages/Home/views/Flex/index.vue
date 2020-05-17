@@ -25,7 +25,7 @@
 
 <script>
 import View from 'components/home/View'
-import Favorites from 'components/favorite/Flex'
+import Favorites from 'components/favorites/Flex'
 import History from 'components/history/Flex'
 import Bookmarks from 'components/bookmarks/Flex'
 

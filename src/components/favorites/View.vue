@@ -1,7 +1,7 @@
 <script>
 import View from 'components/View'
-import Toolbar from 'components/favorite/Toolbar'
-import Toolbox from 'components/favorite/Toolbox'
+import Toolbar from 'components/favorites/Toolbar'
+import Toolbox from 'components/favorites/Toolbox'
 
 export default {
   name: 'FavoritesView',

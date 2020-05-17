@@ -31,7 +31,7 @@ export default {
           switch (this.tileClicks) {
             case 1:
               console.log('single click')
-              this.$router.push(`/favorites/${this.favorite.id}`)
+              this.$router.push(`/favorites/${encodeURIComponent(this.favorite.url)}`)
               break
             default:
               console.log('double click')
@@ -46,25 +46,6 @@ export default {
 </script>
 
 <style lang="scss">
-.tile {
-  font-size: .75em;
-  width: 64px;
-  height: 128px;
-  padding: 4px;
-  margin: 4px;
-  overflow: hidden;
-}
-.tile:hover {
-  cursor: pointer;
-  color: black !important;
-  // background-color:white;
-  filter: drop-shadow(8px 8px 8px #222222);
-}
-.tile img {
-  width: 32px;
-  height: 32px;
-}
-
 a {
   color: white;
   text-decoration: none;

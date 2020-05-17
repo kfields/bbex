@@ -4,7 +4,7 @@ import 'dexie-observable'
 export const db = new Dexie('BBEX')
 
 db.version(1).stores({
-  resources: 'url, title, dateAdded, lastVisitTime, visitCount, marked'
+  resources: 'url, title, dateAdded, lastVisitTime, visitCount, mark, favorite'
 })
 
 db.on('populate', function () {

@@ -3,8 +3,8 @@
 </template>
 
 <script>
-import View from 'components/favorite/View'
-import Tiles from 'components/favorite/Tiles'
+import View from 'components/favorites/View'
+import Tiles from 'components/favorites/Tiles'
 
 export default {
   name: 'FavoriteTilesView',

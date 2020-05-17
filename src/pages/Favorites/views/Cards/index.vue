@@ -3,8 +3,8 @@
 </template>
 
 <script>
-import View from 'components/favorite/View'
-import FavoriteCards from 'components/favorite/Cards'
+import View from 'components/favorites/View'
+import FavoriteCards from 'components/favorites/Cards'
 
 export default {
   name: 'FavoriteCardsView',

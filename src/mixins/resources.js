@@ -9,7 +9,8 @@ export default {
         maxResults: 100000
       },
       resources: [],
-      subscriptions: []
+      subscriptions: [],
+      status: 'init'
     }
   },
   computed: {
@@ -39,16 +40,22 @@ export default {
         console.log(this.options)
         const limit = this.options.limit
         const resources = await this.$resources.more((index - 1) * limit, limit, this.options)
+        console.log('more', index, resources.length)
         if (resources.length === 0) {
           this.$refs.infiniteScroll.stop()
+          if (index === 1) {
+            this.status = 'failure'
+          } else { this.status = 'success' }
           return done()
         }
         this.resources = this.resources.concat(resources)
+        this.status = 'success'
         done()
       })
     },
     reload () {
       console.log('reload')
+      this.status = 'loading'
       this.resources = []
       if (this.$refs.infiniteScroll) {
         this.$refs.infiniteScroll.reset()

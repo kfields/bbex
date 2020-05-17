@@ -25,7 +25,7 @@
 
 <script>
 import View from 'components/home/View'
-import Favorites from 'components/favorite/List'
+import Favorites from 'components/favorites/List'
 import History from 'components/history/List'
 import Bookmarks from 'components/bookmarks/List'
 

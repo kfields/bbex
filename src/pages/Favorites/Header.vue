@@ -1,7 +1,7 @@
 <template>
   <header-shell>
     <h1>
-      <q-icon name="stars" class="header-icon"/>
+      <q-icon name="favorite" class="header-icon"/>
       Favorites
     </h1>
   </header-shell>
