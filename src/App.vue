@@ -1,17 +1,17 @@
 <template>
   <div id="q-app">
-    <Service />
+    <HistoryService />
     <router-view />
   </div>
 </template>
 
 <script>
-import Service from './Service'
+import HistoryService from './HistoryService'
 
 export default {
   name: 'App',
   components: {
-    Service
+    HistoryService
   } /* ,
   methods: {
     // Our function which receives the URL sent by the background script.

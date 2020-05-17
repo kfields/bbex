@@ -58,7 +58,7 @@ import VisitList from 'components/visit/List'
 // import Flex from './views/Flex'
 
 export default {
-  name: 'UrlPage',
+  name: 'ResourcePage',
   extends: Page,
   props: ['id'],
   data () {

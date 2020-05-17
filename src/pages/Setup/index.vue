@@ -69,6 +69,16 @@ export default {
       // create resource dictionary
       const resourceDict = {}
       for (const item of history) {
+        const url = item.url
+        const urlObject = new URL(url)
+        const urlProtocol = urlObject.protocol
+        // const urlDomain = urlObject.hostname
+        // const urlPort = urlObject.port
+
+        if (urlProtocol === 'chrome-extension:') {
+          continue
+        }
+
         const resource = new Resource(item.url, item.title, item.lastVisitTime, item.lastVisitTime, item.visitCount)
         resourceDict[item.url] = resource
       }

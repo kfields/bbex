@@ -1,6 +1,12 @@
 import { db } from './dexie'
 import Fuse from 'fuse.js'
 
+/* function sameOptions (a, b) {
+  if (a.search === b.search && a.max === b.max) {
+    return true
+  }
+  return false
+} */
 export class Resource {
   constructor (url, title = '', dateAdded = 0, lastVisitTime = 0, visitCount = 1, marked = false) {
     this.url = url
@@ -21,15 +27,6 @@ class Resources {
   }
 
   async internFromHistory (item) {
-    const url = item.url
-    const urlObject = new URL(url)
-    const urlProtocol = urlObject.protocol
-    // const urlDomain = urlObject.hostname
-    // const urlPort = urlObject.port
-
-    if (urlProtocol === 'chrome-extension:') {
-      return
-    }
     var resource = await db.resources.get(item.url)
     if (!resource) {
       resource = new Resource(item.url, item.title, item.lastVisitTime, item.lastVisitTime, item.visitCount)
@@ -37,12 +34,9 @@ class Resources {
     } else {
       const { lastVisitTime, visitCount } = item
       await db.resources.update(item.url, { lastVisitTime, visitCount })
+      resource.lastVisitTime = item.lastVisitTime
+      resource.visitCount = item.visitCount
     }
-  }
-
-  async updateFromTab (tabId, changeInfo, tab) {
-    const { title } = tab
-    await db.resources.update(tab.url, { title })
   }
 
   async get (id) {
@@ -50,16 +44,31 @@ class Resources {
     return response
   }
 
-  async more (offset, limit, options = {}) {
-    const resources = await this.find(offset, limit, options)
-    return resources
+  async more (ndx, ttl, options = {}) {
+    const resources = await this.find(options)
+    const length = resources.length
+    const results = []
+    for (let i = ndx; i < ndx + ttl; ++i) {
+      if (i >= length) { break }
+      results.push(resources[i])
+    }
+    return results
   }
 
-  async find (offset, limit, options = {}) {
+  async find (options = {}) {
     console.log('find resources')
     console.log(options)
 
-    this.resources = await db.resources.orderBy('lastVisitTime').offset(offset).limit(limit).reverse().toArray()
+    /* if (!sameOptions(options, this.options)) {
+      console.log('cache invalid')
+      this.options = Object.assign({}, options)
+      this.resources = null
+    }
+    if (this.resources) { return this.resources } */
+
+    // this.resources = await db.resources.orderBy('dateAdded').limit(options.max).reverse().toArray()
+    // this.resources = await db.resources.toArray()
+    this.resources = await db.resources.orderBy('lastVisitTime').limit(options.maxResults).reverse().toArray()
 
     if (options.text) {
       console.log('using search')
@@ -81,6 +90,7 @@ class Resources {
 
   remove (id, next) {
     db.resources.delete(id)
+    chrome.resources.remove(id, next)
   }
 }
 
