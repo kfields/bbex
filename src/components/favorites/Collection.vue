@@ -19,6 +19,17 @@ export default {
     this.options.url = this.url
   },
   methods: {
+    onFavoriteAction (msg, data) {
+      switch (data.action) {
+        case 'delete': {
+          const url = data.favorite.url
+          this.$favorites.remove(url, () => {
+            const index = this.favorites.findIndex(favorite => favorite.url === url)
+            this.favorites.splice(index, 1)
+          })
+        }
+      }
+    }
   }
 }
 </script>

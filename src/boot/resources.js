@@ -28,6 +28,11 @@ export class Resources {
     this.fuseIndex = null
   }
 
+  async create (url, title = '', dateAdded = Date.now(), lastVisitTime = Date.now(), visitCount = 1, bookmark = false, favorite = false) {
+    const resource = new Resource(url, title, dateAdded, lastVisitTime, visitCount, 1, bookmark, favorite)
+    await db.resources.put(resource)
+  }
+
   async internFromHistory (item) {
     const url = item.url
     const urlObject = new URL(url)
@@ -65,6 +70,7 @@ export class Resources {
 
   remove (id, next) {
     db.resources.delete(id)
+    next()
   }
 
   async more (offset, limit, options = {}) {

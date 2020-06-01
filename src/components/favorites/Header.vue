@@ -7,7 +7,7 @@
       {{ favorite.title }}
     </q-item-section>
     <q-item-section side>
-      <tippy
+      <tippy ref="tippy"
           interactive
           :animate-fill="false"
           placement="bottom"

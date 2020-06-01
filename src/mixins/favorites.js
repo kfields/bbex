@@ -70,6 +70,7 @@ export default {
       this.reload()
     },
     onFavoriteAction (msg, data) {
+      console.log('onFavoriteAction')
     }
   }
 }
