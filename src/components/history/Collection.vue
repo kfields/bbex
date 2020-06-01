@@ -26,6 +26,7 @@ export default {
     onEventAction (msg, data) {
       switch (data.action) {
         case 'delete': {
+          console.log(data.event)
           const id = data.event.id
           this.$history.remove(id, () => {
             const index = this.history.findIndex(event => event.id === id)

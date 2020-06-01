@@ -2,6 +2,7 @@
 <div class="fit">
   <navbox-shell>
     <q-list>
+      <!--
       <q-item to="/events/create" exact>
         <q-item-section avatar>
           <q-icon name="link" />
@@ -10,8 +11,8 @@
           <q-item-label>Add URL</q-item-label>
         </q-item-section>
       </q-item>
+      -->
     </q-list>
-
   </navbox-shell>
 </div>
 </template>

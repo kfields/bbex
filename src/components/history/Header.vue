@@ -20,7 +20,7 @@
           <q-btn fab-mini flat icon="more_vert"/>
         </template>
         <q-list>
-          <q-item @click="frame.remove()" clickable>
+          <q-item clickable @click="$pubsub.publish('EventAction', { action: 'delete', favorite})">
             <q-item-section avatar>
               <q-icon name="delete" />
             </q-item-section>
