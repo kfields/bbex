@@ -2,18 +2,18 @@ import { db } from './dexie'
 import Fuse from 'fuse.js'
 
 export class Resource {
-  constructor (url, title = '', dateAdded = 0, lastVisitTime = 0, visitCount = 1, mark = false, favorite = false) {
+  constructor (url, title = '', dateAdded = 0, lastVisitTime = 0, visitCount = 1, bookmark = false, favorite = false) {
     this.url = url
     this.title = title
     this.dateAdded = dateAdded
     this.lastVisitTime = lastVisitTime
     this.visitCount = visitCount
-    this.mark = mark ? 1 : 0
+    this.bookmark = bookmark ? 1 : 0
     this.favorite = favorite ? 1 : 0
   }
 }
 
-class Resources {
+export class Resources {
   constructor () {
     this.options = {}
     this.resources = null
@@ -58,6 +58,11 @@ class Resources {
     return response
   }
 
+  async getAll (id) {
+    const response = await db.resources.orderBy('lastVisitTime').reverse().toArray()
+    return response
+  }
+
   remove (id, next) {
     db.resources.delete(id)
   }
@@ -70,11 +75,11 @@ class Resources {
     return resources
   }
 
-  async search (ndx, ttl, options = {}) {
+  async search (offset, limit, options = {}) {
     const resources = await this.find(options)
     const length = resources.length
     const results = []
-    for (let i = ndx; i < ndx + ttl; ++i) {
+    for (let i = offset; i < offset + limit; ++i) {
       if (i >= length) { break }
       results.push(resources[i])
     }
@@ -88,7 +93,7 @@ class Resources {
     if (!this.index) {
       await this.buildIndex()
     }
-    this.resources = await db.resources.orderBy('lastVisitTime').reverse().toArray()
+    this.resources = await this.getAll()
     const fuse = new Fuse(this.resources, this.fuseOptions, this.fuseIndex)
     const results = fuse.search(options.text)
     console.log('fuse', results)

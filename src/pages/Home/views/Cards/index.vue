@@ -4,21 +4,21 @@
       <q-section-header icon="favorite">
         Favorites
       </q-section-header>
-      <Favorites text="" :maxResults="5" />
+      <Favorites text="" :maxResults="10" />
     </q-section>
 
     <q-section class="card-section">
       <q-section-header icon="bookmarks">
         Recent Bookmarks
       </q-section-header>
-      <Bookmarks text="" :maxResults="5" />
+      <Bookmarks text="" :maxResults="10" />
     </q-section>
 
     <q-section class="card-section">
       <q-section-header icon="history">
         Recent History
       </q-section-header>
-      <History text="" :maxResults="5" />
+      <History text="" :maxResults="10" />
     </q-section>
   </div>
 </template>

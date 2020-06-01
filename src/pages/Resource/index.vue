@@ -17,7 +17,7 @@
         </q-field>
 
         <q-toggle
-          v-model="mark"
+          v-model="bookmark"
           color="blue"
           icon="bookmark"
           label="Bookmark"
@@ -82,7 +82,7 @@ export default {
       title: '',
       url: decodeURIComponent(this.id),
       dateAdded: 0,
-      mark: false,
+      bookmark: false,
       favorite: false
     }
   },
@@ -99,7 +99,7 @@ export default {
     const resource = this.resource = await this.$resources.get(this.url)
     this.title = resource.title
     this.dateAdded = resource.dateAdded
-    this.mark = resource.mark === 1
+    this.bookmark = resource.bookmark === 1
     this.favorite = resource.favorite === 1
   },
   methods: {

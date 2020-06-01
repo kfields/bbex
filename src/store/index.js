@@ -5,6 +5,7 @@ import app from './app'
 import ui from './ui'
 import history from './history'
 import bookmarks from './bookmarks'
+import favorites from './favorites'
 import resources from './resources'
 
 Vue.use(Vuex)
@@ -21,6 +22,7 @@ export default function (/* { ssrContext } */) {
       ui,
       history,
       bookmarks,
+      favorites,
       resources
     }
     // enable strict mode (adds overhead!)

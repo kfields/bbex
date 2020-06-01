@@ -94,13 +94,10 @@ export default {
     },
     open () {
       this.$refs.popup.$el.focus()
-      /* this.$q.bex.send('open-popup', { someKey: 'aValue' }).then(response => {
-        window.alert('Some response from the other side')
-      }) */
     },
     close () {
       this.$q.bex.send('close-popup', { someKey: 'aValue' }).then(response => {
-        window.alert('Some response from the other side')
+        // window.alert('Some response from the other side')
       })
     }
   }

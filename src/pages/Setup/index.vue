@@ -95,7 +95,7 @@ export default {
           const resource = new Resource(item.url, item.title, item.dateAdded, item.dateAdded, 1, true)
           resourceDict[item.url] = resource
         } else {
-          resourceDict[item.url].mark = 1
+          resourceDict[item.url].bookmark = 1
         }
       }
       // favorites
