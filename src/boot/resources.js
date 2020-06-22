@@ -58,6 +58,20 @@ export class Resources {
     await db.resources.update(tab.url, { title })
   }
 
+  async internFromBookmark (item) {
+    console.log('internFromBookmark', item)
+    var resource = await db.resources.get(item.url)
+    if (!resource) {
+      console.log('creating bookmark')
+      resource = new Resource(item.url, item.title, item.dateAdded, item.dateAdded, 1, true)
+      await db.resources.put(resource)
+    } else {
+      console.log('updating bookmark')
+      const bookmark = 1
+      await db.resources.update(item.url, { bookmark })
+    }
+  }
+
   async get (id) {
     const response = await db.resources.get(id)
     return response

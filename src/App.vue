@@ -1,17 +1,20 @@
 <template>
   <div id="q-app">
     <HistoryService />
+    <BookmarkService />
     <router-view />
   </div>
 </template>
 
 <script>
 import HistoryService from './HistoryService'
+import BookmarkService from './BookmarkService'
 
 export default {
   name: 'App',
   components: {
-    HistoryService
+    HistoryService,
+    BookmarkService
   } /* ,
   methods: {
     // Our function which receives the URL sent by the background script.
