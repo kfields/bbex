@@ -33,7 +33,7 @@ export default {
   },
   mounted () {
     this.setPage(this)
-    this.setView(List)
+    // this.setView(List)
     this.setNavbox(Navbox)
     this.setHeader(Header)
     this.setMenu(Menu)

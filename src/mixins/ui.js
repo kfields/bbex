@@ -21,6 +21,7 @@ export default {
     ...mapGetters([
       'page',
       'view',
+      'viewInfo',
       'navbox',
       'toolbox',
       'toolboxProps',
@@ -34,6 +35,7 @@ export default {
     ...mapActions([
       'setPage',
       'setView',
+      'setViewInfo',
       'toggleNavDrawer',
       'setNavDrawerOpen',
       'toggleToolDrawer',

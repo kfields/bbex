@@ -8,11 +8,13 @@
         </template>
       </q-input>
     </q-form> -->
-    <component :is="menu"/>
+    <view-switcher />
+    <!-- <component :is="menu"/> -->
   </q-toolbar>
 </template>
 
 <script>
+import ViewSwitcher from 'components/ViewSwitcher'
 import Toolbar from 'components/Toolbar'
 import HistoryMixin from 'src/mixins/history'
 
@@ -21,6 +23,7 @@ export default {
   extends: Toolbar,
   mixins: [HistoryMixin],
   components: {
+    ViewSwitcher
   },
   data () {
     return {

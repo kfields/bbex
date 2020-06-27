@@ -30,6 +30,7 @@ export default {
     onSwitch () {
       this.setNavbox(Navbox)
       this.setFooter(Footer)
+      this.setView(this.views[this.viewInfo.kind])
     }
   }
 }

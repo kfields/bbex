@@ -8,19 +8,22 @@
         </template>
       </q-input>
     </q-form> -->
-    <component :is="menu"/>
+    <view-switcher />
+    <!-- <component :is="menu"/> -->
   </q-toolbar>
 </template>
 
 <script>
+import ViewSwitcher from 'components/ViewSwitcher'
 import Toolbar from 'components/Toolbar'
-import HistoryMixin from 'src/mixins/history'
+import BookmarksMixin from 'src/mixins/bookmarks'
 
 export default {
   name: 'BookmarkListToolbar',
   extends: Toolbar,
-  mixins: [HistoryMixin],
+  mixins: [BookmarksMixin],
   components: {
+    ViewSwitcher
   },
   data () {
     return {

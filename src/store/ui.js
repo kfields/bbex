@@ -3,6 +3,7 @@ const state = {
   toolDrawerOpen: false,
   page: null,
   view: null,
+  viewInfo: { kind: 'List', title: 'List', icon: 'list' },
   vu: null,
   navbox: null,
   toolbox: null,
@@ -18,6 +19,7 @@ const getters = {
   toolDrawerOpen: (state) => state.toolDrawerOpen,
   page: (state) => state.page,
   view: (state) => state.view,
+  viewInfo: (state) => state.viewInfo,
   vu: (state) => state.vu,
   navbox: (state) => state.navbox,
   toolbox: (state) => state.toolbox,
@@ -46,6 +48,9 @@ const actions = {
   },
   setView: ({ commit }, data) => {
     commit('view', data)
+  },
+  setViewInfo: ({ commit }, data) => {
+    commit('viewInfo', data)
   },
   setVu: ({ commit }, data) => {
     commit('vu', data)
@@ -85,6 +90,9 @@ const mutations = {
   },
   view: (state, data) => {
     state.view = data
+  },
+  viewInfo: (state, data) => {
+    state.viewInfo = data
   },
   vu: (state, data) => {
     state.view = data
