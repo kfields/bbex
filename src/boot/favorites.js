@@ -11,22 +11,9 @@ class Favorites extends Resources {
     return results
   }
 
-  async more (offset, limit, options = {}) {
-    if (options.text) {
-      return await this.search(offset, limit, options)
-    }
+  async getSome (offset, limit, options = {}) {
     const results = this.resources = await db.resources.where('favorite').equals(1).offset(offset).limit(limit).reverse().sortBy('lastVisitTime')
     return results
-  }
-
-  async find (options = {}) {
-    console.log('favorites find')
-    console.log(options)
-    const topSites = () => new Promise((resolve, reject) => {
-      chrome.topSites.get(resolve)
-    })
-    this.favorites = await topSites()
-    return this.favorites
   }
 }
 

@@ -77,9 +77,14 @@ export class Resources {
     return response
   }
 
-  async getAll (id) {
-    const response = await db.resources.orderBy('lastVisitTime').reverse().toArray()
-    return response
+  async getSome (offset, limit, options = {}) {
+    const resources = this.resources = await db.resources.orderBy('lastVisitTime').offset(offset).limit(limit).reverse().toArray()
+    return resources
+  }
+
+  async getAll () {
+    const results = await db.resources.orderBy('lastVisitTime').reverse().toArray()
+    return results
   }
 
   remove (id, next) {
@@ -88,21 +93,26 @@ export class Resources {
   }
 
   async more (offset, limit, options = {}) {
-    if (options.text) {
+    const { text, maxResults } = options
+    if (offset > maxResults) {
+      return []
+    } else if (offset === 0 && limit > maxResults) {
+      limit = maxResults
+    }
+    if (text) {
       return await this.search(offset, limit, options)
     }
-    const resources = this.resources = await db.resources.orderBy('lastVisitTime').offset(offset).limit(limit).reverse().toArray()
+    // const resources = await this.getSome(offset, limit, options)
+    if (offset === 0) {
+      this.results = await this.getAll()
+    }
+    const resources = this.results.slice(offset, offset + limit)
     return resources
   }
 
   async search (offset, limit, options = {}) {
     const resources = await this.find(options)
-    const length = resources.length
-    const results = []
-    for (let i = offset; i < offset + limit; ++i) {
-      if (i >= length) { break }
-      results.push(resources[i])
-    }
+    const results = resources.slice(offset, offset + limit)
     return results
   }
 
@@ -127,7 +137,7 @@ export class Resources {
   }
 
   async buildIndex () {
-    const list = await db.resources.orderBy('lastVisitTime').reverse().toArray()
+    const list = await this.getAll()
     this.index = Fuse.createIndex(this.fuseOptions.keys, list)
   }
 }

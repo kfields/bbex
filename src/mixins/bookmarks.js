@@ -9,7 +9,8 @@ export default {
         maxResults: 100000
       },
       bookmarks: [],
-      subscriptions: []
+      subscriptions: [],
+      status: 'init'
     }
   },
   computed: {
@@ -41,14 +42,19 @@ export default {
         const bookmarks = await this.$bookmarks.more((index - 1) * limit, limit, this.options)
         if (bookmarks.length === 0) {
           this.$refs.infiniteScroll.stop()
+          if (index === 1) {
+            this.status = 'failure'
+          } else { this.status = 'success' }
           return done()
         }
         this.bookmarks = this.bookmarks.concat(bookmarks)
+        this.status = 'success'
         done()
       })
     },
     reload () {
       console.log('reload')
+      this.status = 'loading'
       this.bookmarks = []
       if (this.$refs.infiniteScroll) {
         this.$refs.infiniteScroll.reset()
