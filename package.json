@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "dexie": "^3.0.1",
     "dexie-observable": "^1.0.0-beta.7",
     "fuse.js": "^5.2.3",
